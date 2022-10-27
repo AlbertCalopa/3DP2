@@ -332,3 +332,4 @@ MonoBehaviour:
   m_OtherPortalTransform: {fileID: 6558471064294777472}
   m_MirrorPortal: {fileID: 0}
   m_Player: {fileID: 0}
+  m_OffsetNearPlane: 0.3
