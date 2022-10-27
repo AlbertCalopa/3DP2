@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class Portal : MonoBehaviour
 {
@@ -7,6 +8,10 @@ public class Portal : MonoBehaviour
     public Portal m_MirrorPortal;
     public FPPlayerController m_Player;
     public float m_OffsetNearPlane;
+    public List<Transform> m_ValidPoints;
+    public float m_MinValidDistance;
+    public float m_MaxValidDistance;
+    public float m_MinDotValidAngle;
 
     private void LateUpdate()
     {
@@ -20,5 +25,51 @@ public class Portal : MonoBehaviour
 
         float l_Distance = Vector3.Distance(m_MirrorPortal.m_Camera.transform.position, m_MirrorPortal.transform.position);
         m_MirrorPortal.m_Camera.nearClipPlane = l_Distance + m_OffsetNearPlane;
+    }
+
+    public bool IsValidPosition(Vector3 StartPosition, Vector3 forward, float MaxDistance, LayerMask PortalLayerMask, out Vector3 Position, out Vector3 Normal)
+    {
+        Ray l_Ray = new Ray(StartPosition, forward);
+        RaycastHit l_RaycastHit;
+        bool l_Valid = true;
+        Position = Vector3.zero;
+        Normal = Vector3.forward;
+
+        if (Physics.Raycast(l_Ray, out l_RaycastHit, MaxDistance, PortalLayerMask.value))
+        {
+            if (l_RaycastHit.collider.tag == "DrawableWall")
+            {
+                l_Valid = true;
+                Normal = l_RaycastHit.normal;
+                Position = l_RaycastHit.point;
+
+                for (int i = 0; i < m_ValidPoints.Count; i++)
+                {
+                    Vector3 l_Direction = m_ValidPoints[i].position - StartPosition;
+                    l_Direction.Normalize();
+                    l_Ray = new Ray(StartPosition, l_Direction);
+                    if (Physics.Raycast(l_Ray, out l_RaycastHit, MaxDistance, PortalLayerMask.value))
+                    {
+                        float l_Distance = Vector3.Distance(Position, l_RaycastHit.point);
+                        float l_DotAngle = Vector3.Dot(Normal, l_RaycastHit.normal);
+                        if (!(l_Distance >= m_MinValidDistance && l_Distance <= m_MaxValidDistance && l_DotAngle > m_MinDotValidAngle))
+                        {
+                            l_Valid = false;
+                        }
+                        else
+                        {
+                            l_Valid = false;
+                        }
+                    }
+                    else
+                    {
+                        l_Valid = false;
+                    }
+                }
+
+            }
+            
+        }
+        return l_Valid;
     }
 }
