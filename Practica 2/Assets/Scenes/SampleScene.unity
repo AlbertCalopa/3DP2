@@ -812,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 1665414849}
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_MaxValidDistance
-      value: 0.3
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_MinValidDistance
