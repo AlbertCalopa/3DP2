@@ -302,11 +302,11 @@ public class FPPlayerController : MonoBehaviour
 
             if(_Portal.IsValidPosition(m_Camera.transform.position, m_Camera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
             {
-                _Portal.gameObject.SetActive(false);
+                _Portal.gameObject.SetActive(true);
             }
             else
             {
-                _Portal.gameObject.SetActive(true);
+                _Portal.gameObject.SetActive(false);
             }
         }
         
