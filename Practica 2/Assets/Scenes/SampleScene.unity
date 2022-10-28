@@ -439,7 +439,7 @@ GameObject:
   - component: {fileID: 795196113}
   m_Layer: 0
   m_Name: Quad
-  m_TagString: Untagged
+  m_TagString: DrawableWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -738,6 +738,9 @@ MonoBehaviour:
   m_FOVSpeed: 4
   m_FOVSpeedReleased: 10
   m_JumpSpeed: 10
+  m_BluePortal: {fileID: 1475734239}
+  m_OrangePortal: {fileID: 1665414849}
+  m_DoomiePortal: {fileID: 0}
   m_TimeGrounded: 0.2
   m_MaxShootDistance: 0
   m_ShootingLayerMask:

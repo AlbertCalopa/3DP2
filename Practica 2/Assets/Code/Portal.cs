@@ -42,6 +42,8 @@ public class Portal : MonoBehaviour
                 l_Valid = true;
                 Normal = l_RaycastHit.normal;
                 Position = l_RaycastHit.point;
+                transform.position = Position;
+                transform.rotation = Quaternion.LookRotation(Normal);
 
                 for (int i = 0; i < m_ValidPoints.Count; i++)
                 {
@@ -51,6 +53,7 @@ public class Portal : MonoBehaviour
                     if (Physics.Raycast(l_Ray, out l_RaycastHit, MaxDistance, PortalLayerMask.value))
                     {
                         float l_Distance = Vector3.Distance(Position, l_RaycastHit.point);
+                        Debug.Log("Dist: " + l_Distance);
                         float l_DotAngle = Vector3.Dot(Normal, l_RaycastHit.normal);
                         if (!(l_Distance >= m_MinValidDistance && l_Distance <= m_MaxValidDistance && l_DotAngle > m_MinDotValidAngle))
                         {

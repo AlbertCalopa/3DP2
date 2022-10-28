@@ -46,6 +46,12 @@ public class FPPlayerController : MonoBehaviour
     bool m_OnGround = true;
 
     public float m_JumpSpeed = 10.0f;
+    Vector3 m_StartPosition;
+    Quaternion m_StartRotation;
+
+    public Portal m_BluePortal;
+    public Portal m_OrangePortal;
+    public Portal m_DoomiePortal;
 
     float m_TimeOfGround;
     public float m_TimeGrounded = 0.2f;
@@ -65,8 +71,7 @@ public class FPPlayerController : MonoBehaviour
 
     bool m_Shooting = false;
 
-    Vector3 m_StartPosition;
-    Quaternion m_StartRotation;
+    
 
     public float m_Health; //el profe el te com life
     public float m_bullets = 10;
@@ -117,7 +122,8 @@ public class FPPlayerController : MonoBehaviour
         m_StartPosition = transform.position;
         m_StartRotation = transform.rotation;
 
-       
+        m_BluePortal.gameObject.SetActive(false);
+        m_OrangePortal.gameObject.SetActive(false);
 
     }
 
@@ -132,6 +138,14 @@ public class FPPlayerController : MonoBehaviour
             Die();
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            Shoot(m_BluePortal);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Shoot(m_OrangePortal);
+        }
         if (m_HitDamageScreeen != null)
         {
             if (m_HitDamageScreeen.GetComponent<Image>().color.a > 0) 
@@ -278,6 +292,21 @@ public class FPPlayerController : MonoBehaviour
         bool CanShoot()
         {
             return true;
+        }
+
+        void Shoot(Portal _Portal)
+        {
+            Vector3 l_Position;
+            Vector3 l_Normal;
+
+            if(_Portal.IsValidPosition(m_Camera.transform.position, m_Camera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
+            {
+                _Portal.gameObject.SetActive(true);
+            }
+            else
+            {
+                _Portal.gameObject.SetActive(false);
+            }
         }
         
         /*void Shoot()
