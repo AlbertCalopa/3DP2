@@ -146,6 +146,7 @@ public class FPPlayerController : MonoBehaviour
         {
             Shoot(m_OrangePortal);
         }
+
         if (m_HitDamageScreeen != null)
         {
             if (m_HitDamageScreeen.GetComponent<Image>().color.a > 0) 
@@ -198,7 +199,7 @@ public class FPPlayerController : MonoBehaviour
             if (l_Direction != Vector3.zero && !isReloading)
             {
                 isRunning = true; 
-                SetRunWeaponAnimation();
+                //SetRunWeaponAnimation();
                 l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_RunMovementFOV, m_FOVSpeed * Time.deltaTime);
                 
             }
@@ -358,12 +359,12 @@ public class FPPlayerController : MonoBehaviour
         StartCoroutine(EndShoot());
     }
     
-    void SetRunWeaponAnimation() 
+    /*void SetRunWeaponAnimation() 
     {
         m_Animation.CrossFade(m_RunAnimationClip.name, 0.1f); 
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
         StartCoroutine(EndShoot());
-    }
+    }*/
 
     IEnumerator EndShoot()
     {
