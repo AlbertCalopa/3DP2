@@ -417,9 +417,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5707122498835138289}
   - component: {fileID: 3556066608036039123}
+  - component: {fileID: 3580098091937138421}
   m_Layer: 0
   m_Name: BluePortal
-  m_TagString: Untagged
+  m_TagString: Portal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -470,6 +471,19 @@ MonoBehaviour:
   m_MinValidDistance: 0.4
   m_MaxValidDistance: 0.95
   m_MinDotValidAngle: 0.995
+--- !u!65 &3580098091937138421
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5707122498835138290}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.0752764, z: 0.31512737}
+  m_Center: {x: 0, y: -0.09516525, z: 0.15161943}
 --- !u!1 &7147445079392579746
 GameObject:
   m_ObjectHideFlags: 0

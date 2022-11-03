@@ -60,8 +60,8 @@ public class FPPlayerController : MonoBehaviour
 
     public LayerMask m_ShootingLayerMask;
 
-    
-    
+
+    public float m_OffsetTeleportPortal;
 
     [Header("Animations")]
     public Animation m_Animation;
@@ -101,8 +101,8 @@ public class FPPlayerController : MonoBehaviour
     public ParticleSystem shootParticle;
 
 
-    
-
+    Vector3 m_Direction;
+    public float m_AngleToEnterPortalInDegrees;
 
 
     void Start()
@@ -167,22 +167,22 @@ public class FPPlayerController : MonoBehaviour
         m_TimeOfGround += Time.deltaTime;
         Vector3 l_RightDirection = transform.right;
         Vector3 l_ForwardDirection = transform.forward;
-        Vector3 l_Direction = Vector3.zero;
+        m_Direction = Vector3.zero;
 
         float l_Speed = m_PlayerSpeed;
 
         if (Input.GetKey(m_UpKeyCode))
-            l_Direction = l_ForwardDirection;
+            m_Direction = l_ForwardDirection;
         else
         {
             l_FOV = Mathf.Lerp(m_Camera.fieldOfView, m_NormalMovementFOV, m_FOVSpeedReleased * Time.deltaTime);
         }
         if (Input.GetKey(m_DownKeyCode))
-            l_Direction -= l_ForwardDirection;
+            m_Direction -= l_ForwardDirection;
         if (Input.GetKey(m_RightKeyCode))
-            l_Direction += l_RightDirection;
+            m_Direction += l_RightDirection;
         if (Input.GetKey(m_LeftKeyCode))
-            l_Direction -= l_RightDirection;
+            m_Direction -= l_RightDirection;
         if(Input.GetKeyDown(m_JumpKeyCode) && m_OnGround)
         {
             m_VerticalSpeed = m_JumpSpeed;
@@ -196,7 +196,7 @@ public class FPPlayerController : MonoBehaviour
         if (Input.GetKey(m_RunKeyCode))
         {
             l_Speed = m_PlayerSpeed * m_FastSpeedMultiplier;
-            if (l_Direction != Vector3.zero && !isReloading)
+            if (m_Direction != Vector3.zero && !isReloading)
             {
                 isRunning = true; 
                 //SetRunWeaponAnimation();
@@ -214,9 +214,9 @@ public class FPPlayerController : MonoBehaviour
 
             m_Camera.fieldOfView = l_FOV;
 
-        l_Direction.Normalize();
+        m_Direction.Normalize();
 
-        Vector3 l_movement = l_Direction * l_Speed * Time.deltaTime;
+        Vector3 l_Movement = m_Direction * l_Speed * Time.deltaTime;
 
         float l_MouseX = Input.GetAxis("Mouse X");
         float l_MouseY = Input.GetAxis("Mouse Y");
@@ -236,9 +236,9 @@ public class FPPlayerController : MonoBehaviour
         m_PitchController.localRotation = Quaternion.Euler(m_Pitch, 0.0f, 0.0f);
 
         m_VerticalSpeed = m_VerticalSpeed + Physics.gravity.y * Time.deltaTime;
-        l_movement.y = m_VerticalSpeed * Time.deltaTime;
+        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
 
-        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_movement);
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
         if((l_CollisionFlags & CollisionFlags.Above)!= 0 && m_VerticalSpeed > 0.0f)
         {
             m_VerticalSpeed = 0.0f;
@@ -399,6 +399,30 @@ public class FPPlayerController : MonoBehaviour
         {
             Die();
         }
+        else if(other.tag == "Portal")
+        {
+            Portal l_Portal = other.GetComponent<Portal>();
+            if (Vector3.Dot(l_Portal.transform.forward, -m_Direction) > Mathf.Cos(m_AngleToEnterPortalInDegrees * Mathf.Deg2Rad))
+            {
+                Teleport(other.GetComponent<Portal>());
+            }
+        }
+    }
+
+    void Teleport(Portal _Portal)
+    {
+        Vector3 l_LocalPosotion = _Portal.m_OtherPortalTransform.InverseTransformPoint(transform.position);
+        Vector3 l_LocalDirection = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(transform.forward);
+        Vector3 l_LocalDirectionMovement = _Portal.m_OtherPortalTransform.transform.InverseTransformDirection(m_Direction);
+        Vector3 l_WorldDirectionMovement = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirectionMovement);
+
+
+        m_CharacterController.enabled = false;
+        
+        transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
+        m_Yaw = transform.rotation.eulerAngles.y;
+        transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosotion) + l_WorldDirectionMovement * m_OffsetTeleportPortal;
+        m_CharacterController.enabled = true;
     }
 
     void ShootingGalery()
