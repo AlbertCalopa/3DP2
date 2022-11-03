@@ -951,11 +951,12 @@ MonoBehaviour:
   shootParticle: {fileID: 0}
   m_AngleToEnterPortalInDegrees: 50
   m_AttachingPosition: {fileID: 1730690609}
-  m_AttachingObjectSpeed: 6
+  m_AttachingObjectSpeed: 100
   m_MaxDistanceToAttachObject: 10
   m_AttachObjectLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
+  m_AttachedObjectThrowForce: 750
 --- !u!143 &2142515008
 CharacterController:
   m_ObjectHideFlags: 0
