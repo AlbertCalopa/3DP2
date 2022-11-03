@@ -114,6 +114,7 @@ public class FPPlayerController : MonoBehaviour
     Quaternion m_AttachingObjectStartRotation;
     public float m_MaxDistanceToAttachObject;
     public LayerMask m_AttachObjectLayerMask;
+    public float m_AttachedObjectThrowForce = 750.0f;
 
 
     void Start()
@@ -152,14 +153,29 @@ public class FPPlayerController : MonoBehaviour
         {
             AttachObject();
         }
-        if (Input.GetMouseButtonDown(0))
+        if (m_ObjectAttached && !m_AttachingObject)
         {
-            Shoot(m_BluePortal);
+            if (Input.GetMouseButtonDown(0))
+            {
+                ThrowAttachedObject(m_AttachedObjectThrowForce);
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                ThrowAttachedObject(0.0f);
+            }
         }
-        if (Input.GetMouseButtonDown(1))
+        else if(!m_AttachingObject)
         {
-            Shoot(m_OrangePortal);
+            if(Input.GetMouseButtonDown(0))
+            {         
+                Shoot(m_BluePortal);
+            }
+            if (Input.GetMouseButtonDown(1))
+            {
+                Shoot(m_OrangePortal);
+            }
         }
+        
         bool CanAttachObject()
         {
             return m_ObjectAttached == null;
@@ -319,6 +335,16 @@ public class FPPlayerController : MonoBehaviour
                     Cursor.lockState = CursorLockMode.Locked;
                     m_AimLocked = Cursor.lockState == CursorLockMode.Locked;
                 }
+            }
+        }
+        void ThrowAttachedObject(float force)
+        {
+            if (m_ObjectAttached != null)
+            {
+                m_ObjectAttached.transform.SetParent(null);
+                m_ObjectAttached.isKinematic = false;
+                m_ObjectAttached.AddForce(m_PitchController.forward * force);
+                m_ObjectAttached = null;
             }
         }
 
