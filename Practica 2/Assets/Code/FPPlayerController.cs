@@ -19,7 +19,7 @@ public class FPPlayerController : MonoBehaviour
     public bool m_UseYawInverted;
     public bool m_UsePitchInverted;
     
-
+    [Header("Input")]
     public CharacterController m_CharacterController;
     public float m_PlayerSpeed;
     public float m_FastSpeedMultiplier;
@@ -31,8 +31,10 @@ public class FPPlayerController : MonoBehaviour
     public KeyCode m_RunKeyCode = KeyCode.LeftShift;
     public KeyCode m_DebugLockAngleCode = KeyCode.I;
     public KeyCode m_DebugLockKeyCode = KeyCode.O;
-    public KeyCode m_Reload = KeyCode.R; 
-    
+    public KeyCode m_Reload = KeyCode.R;
+    public KeyCode m_AttachObjectKeyCode = KeyCode.E;
+
+
     bool m_AngleLocked = false;
     bool m_AimLocked = true;
 
@@ -102,7 +104,16 @@ public class FPPlayerController : MonoBehaviour
 
 
     Vector3 m_Direction;
-    public float m_AngleToEnterPortalInDegrees;
+    [Range(0.0f,90.0f)]public float m_AngleToEnterPortalInDegrees;
+
+    [Header("AttachObject")]
+    public Transform m_AttachingPosition;
+    Rigidbody m_ObjectAttached;
+    bool m_AttachingObject = false;
+    public float m_AttachingObjectSpeed = 3.0f;
+    Quaternion m_AttachingObjectStartRotation;
+    public float m_MaxDistanceToAttachObject;
+    public LayerMask m_AttachObjectLayerMask;
 
 
     void Start()
@@ -137,7 +148,10 @@ public class FPPlayerController : MonoBehaviour
         {
             Die();
         }
-
+        if (Input.GetKeyDown(m_AttachObjectKeyCode) && CanAttachObject())
+        {
+            AttachObject();
+        }
         if (Input.GetMouseButtonDown(0))
         {
             Shoot(m_BluePortal);
@@ -145,6 +159,25 @@ public class FPPlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             Shoot(m_OrangePortal);
+        }
+        bool CanAttachObject()
+        {
+            return m_ObjectAttached == null;
+        }
+        void AttachObject()
+        {
+            Ray l_Ray = m_Camera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0.0f));
+            RaycastHit l_RaycastHit;
+            if(Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxDistanceToAttachObject, m_AttachObjectLayerMask.value))
+            {
+                if(l_RaycastHit.collider.tag == "CompanionCube")
+                {
+                    m_AttachingObject = true;
+                    m_ObjectAttached = l_RaycastHit.collider.GetComponent<Rigidbody>();
+                    m_ObjectAttached.isKinematic = true;
+                    m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
+                }
+            }
         }
 
         if (m_HitDamageScreeen != null)
@@ -289,6 +322,36 @@ public class FPPlayerController : MonoBehaviour
             }
         }
 
+        if (m_AttachingObject)
+        {
+            UpdateAttachObject();
+        }
+        void UpdateAttachObject()
+        {
+            Vector3 l_EulerAngles = m_AttachingPosition.rotation.eulerAngles;
+            
+            
+                Vector3 l_Direction = m_AttachingPosition.transform.position - m_ObjectAttached.transform.position;
+                float l_Distance = l_Direction.magnitude;
+                float l_Movement = m_AttachingObjectSpeed * Time.deltaTime;
+                if (l_Movement >= l_Distance)
+                {
+                    m_AttachingObject = false;
+                    m_ObjectAttached.transform.SetParent(m_AttachingPosition);
+                    m_ObjectAttached.transform.localPosition = Vector3.zero;
+                    m_ObjectAttached.transform.localRotation = Quaternion.identity;
+                    //m_ObjectAttached.MovePosition(m_AttachingPosition.position);
+                    //m_ObjectAttached.MoveRotation(Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z));
+                }
+                else
+                {
+                    l_Direction /= l_Distance;
+                    m_ObjectAttached.MovePosition(m_ObjectAttached.transform.position + l_Direction * l_Movement);
+                    m_ObjectAttached.MoveRotation(Quaternion.Lerp(m_AttachingObjectStartRotation, Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z), 1.0f - Mathf.Min(l_Distance / 1.5f, 1.0f)));
+                }
+            
+            
+        }
 
         bool CanShoot()
         {
