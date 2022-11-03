@@ -328,29 +328,25 @@ public class FPPlayerController : MonoBehaviour
         }
         void UpdateAttachObject()
         {
-            Vector3 l_EulerAngles = m_AttachingPosition.rotation.eulerAngles;
-            
-            
-                Vector3 l_Direction = m_AttachingPosition.transform.position - m_ObjectAttached.transform.position;
-                float l_Distance = l_Direction.magnitude;
-                float l_Movement = m_AttachingObjectSpeed * Time.deltaTime;
-                if (l_Movement >= l_Distance)
-                {
-                    m_AttachingObject = false;
-                    m_ObjectAttached.transform.SetParent(m_AttachingPosition);
-                    m_ObjectAttached.transform.localPosition = Vector3.zero;
-                    m_ObjectAttached.transform.localRotation = Quaternion.identity;
-                    //m_ObjectAttached.MovePosition(m_AttachingPosition.position);
-                    //m_ObjectAttached.MoveRotation(Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z));
-                }
-                else
-                {
-                    l_Direction /= l_Distance;
-                    m_ObjectAttached.MovePosition(m_ObjectAttached.transform.position + l_Direction * l_Movement);
-                    m_ObjectAttached.MoveRotation(Quaternion.Lerp(m_AttachingObjectStartRotation, Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z), 1.0f - Mathf.Min(l_Distance / 1.5f, 1.0f)));
-                }
-            
-            
+            Vector3 l_EulerAngles = m_AttachingPosition.rotation.eulerAngles;           
+            Vector3 l_Direction = m_AttachingPosition.transform.position - m_ObjectAttached.transform.position;
+            float l_Distance = l_Direction.magnitude;
+            float l_Movement = m_AttachingObjectSpeed * Time.deltaTime;
+             if (l_Movement >= l_Distance)
+             {
+                 m_AttachingObject = false;
+                 m_ObjectAttached.transform.SetParent(m_AttachingPosition);
+                 m_ObjectAttached.transform.localPosition = Vector3.zero;
+                 m_ObjectAttached.transform.localRotation = Quaternion.identity;
+                 //m_ObjectAttached.MovePosition(m_AttachingPosition.position);
+                 //m_ObjectAttached.MoveRotation(Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z));
+             }
+             else
+             {
+                 l_Direction /= l_Distance;
+                 m_ObjectAttached.MovePosition(m_ObjectAttached.transform.position + l_Direction * l_Movement);
+                 m_ObjectAttached.MoveRotation(Quaternion.Lerp(m_AttachingObjectStartRotation, Quaternion.Euler(0.0f, l_EulerAngles.y, l_EulerAngles.z), 1.0f - Mathf.Min(l_Distance / 1.5f, 1.0f)));
+             }           
         }
 
         bool CanShoot()
