@@ -175,7 +175,8 @@ public class FPPlayerController : MonoBehaviour
                 Shoot(m_OrangePortal);
             }
         }
-        
+       
+
         bool CanAttachObject()
         {
             return m_ObjectAttached == null;
@@ -190,6 +191,7 @@ public class FPPlayerController : MonoBehaviour
                 {
                     m_AttachingObject = true;
                     m_ObjectAttached = l_RaycastHit.collider.GetComponent<Rigidbody>();
+                    m_ObjectAttached.GetComponent<Companion>().SetAttached(true);
                     m_ObjectAttached.isKinematic = true;
                     m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
                 }
@@ -344,6 +346,7 @@ public class FPPlayerController : MonoBehaviour
                 m_ObjectAttached.transform.SetParent(null);
                 m_ObjectAttached.isKinematic = false;
                 m_ObjectAttached.AddForce(m_PitchController.forward * force);
+                m_ObjectAttached.GetComponent<Companion>().SetAttached(false);
                 m_ObjectAttached = null;
             }
         }
