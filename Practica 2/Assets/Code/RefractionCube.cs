@@ -5,9 +5,7 @@ using UnityEngine;
 public class RefractionCube : MonoBehaviour
 {
 
-    public LineRenderer m_Laser;
-    public LayerMask m_LaserLayerMask;
-    public float m_MaxLaserDistance = 250.0f;
+    public Laser m_Laser;
     bool m_RefractionEnabled = false;
     // Start is called before the first frame update
     void Start()
@@ -29,18 +27,10 @@ public class RefractionCube : MonoBehaviour
             return;
         }
         m_RefractionEnabled = true;
-        Ray l_Ray = new Ray(m_Laser.transform.position, m_Laser.transform.forward);
-        float l_LaserDistance = m_MaxLaserDistance;
-        RaycastHit l_RaycastHit;
-        if (Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxLaserDistance, m_LaserLayerMask.value))
+        if (m_RefractionEnabled)
         {
-            l_LaserDistance = Vector3.Distance(m_Laser.transform.position, l_RaycastHit.point);
-            if (l_RaycastHit.collider.tag == "RefractionCube")
-            {
-                l_RaycastHit.collider.GetComponent<RefractionCube>().CreateRefraction();
-            }
-        }
-        m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
+            m_Laser.Shoot();
+        }        
        
     }
 }
