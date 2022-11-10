@@ -195,6 +195,14 @@ public class FPPlayerController : MonoBehaviour
                     m_ObjectAttached.isKinematic = true;
                     m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
                 }
+                if (l_RaycastHit.collider.tag == "RefractionCube")
+                {
+                    m_AttachingObject = true;
+                    m_ObjectAttached = l_RaycastHit.collider.GetComponent<Rigidbody>();
+                    m_ObjectAttached.GetComponent<RefractionCube>().SetAttached(true);
+                    m_ObjectAttached.isKinematic = true;
+                    m_AttachingObjectStartRotation = l_RaycastHit.collider.transform.rotation;
+                }
             }
         }
 
@@ -346,7 +354,7 @@ public class FPPlayerController : MonoBehaviour
                 m_ObjectAttached.transform.SetParent(null);
                 m_ObjectAttached.isKinematic = false;
                 m_ObjectAttached.AddForce(m_PitchController.forward * force);
-                m_ObjectAttached.GetComponent<Companion>().SetAttached(false);
+                m_ObjectAttached.GetComponent<Companion>().SetAttached(false);                           
                 m_ObjectAttached = null;
             }
         }

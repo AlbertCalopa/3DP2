@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -728,9 +728,57 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100008, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100012, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100014, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100016, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100018, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 100020, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 63038850a1999484b8f06eff88530a73, type: 3}
       propertyPath: m_Name
       value: Portal Refraction Cube
+      objectReference: {fileID: 0}
+    - target: {fileID: 100022, guid: 63038850a1999484b8f06eff88530a73, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 100022, guid: 63038850a1999484b8f06eff88530a73, type: 3}
       propertyPath: m_TagString
@@ -1134,7 +1182,7 @@ GameObject:
   - component: {fileID: 1052382465}
   - component: {fileID: 1052382464}
   - component: {fileID: 1052382466}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lasse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1333,6 +1381,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400022, guid: 63038850a1999484b8f06eff88530a73, type: 3}
   m_PrefabInstance: {fileID: 643297594}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1236312665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1236312660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ad812ef1fa12d44807613414b32d58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OffsetTeleportPortal: 1.5
 --- !u!114 &1475734239 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
@@ -1837,7 +1898,7 @@ MonoBehaviour:
   m_MaxDistanceToAttachObject: 10
   m_AttachObjectLayerMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 192
   m_AttachedObjectThrowForce: 750
 --- !u!143 &2142515008
 CharacterController:
