@@ -9,6 +9,7 @@ TagManager:
   - Cube
   - CompanionCube
   - RefractionCube
+  - IceFloor
   layers:
   - Default
   - TransparentFX
