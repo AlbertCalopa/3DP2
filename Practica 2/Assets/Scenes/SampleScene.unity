@@ -131,6 +131,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Laser
+      value: 
+      objectReference: {fileID: 1219706818}
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_Player
       value: 
       objectReference: {fileID: 2142515007}
@@ -668,6 +672,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 86.70513, y: 24.455236, z: 71.67269}
   m_Center: {x: -2.898004, y: 11.727625, z: -5.9689903}
+--- !u!114 &449639128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8118991892615061896, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+  m_PrefabInstance: {fileID: 80048999}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08130bd4a3f860943b88bb19ad27707d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &601032930 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
@@ -1255,6 +1270,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxLaserDistance: 10
+--- !u!114 &1219706818 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8118991892615061896, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+  m_PrefabInstance: {fileID: 5707122497602759727}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08130bd4a3f860943b88bb19ad27707d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1236312660 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100022, guid: 63038850a1999484b8f06eff88530a73, type: 3}
@@ -1467,7 +1493,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.0833795
+      value: -0.5546677
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1475,19 +1501,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.6234354
+      value: 5.0639005
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.016989239
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.9998557
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1499,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -178.053
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: e974cdd27b308e14fadbc5fef531fbbc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1664,7 +1690,7 @@ MonoBehaviour:
   m_LaserLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_MaxLaserDistance: 10
+  m_MaxLaserDistance: 100
 --- !u!1001 &2110020880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1854,6 +1880,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Laser
+      value: 
+      objectReference: {fileID: 449639128}
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_Player
       value: 

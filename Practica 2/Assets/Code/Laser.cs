@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
     public LineRenderer m_Laser;
     public LayerMask m_LaserLayerMask;
     public float m_MaxLaserDistance = 250.0f;
@@ -22,6 +21,11 @@ public class Laser : MonoBehaviour
             if (l_RaycastHit.collider.tag == "RefractionCube")
             {
                 l_RaycastHit.collider.GetComponent<RefractionCube>().CreateRefraction();
+                
+            }
+            if(l_RaycastHit.collider.tag == "Portal")
+            {
+                l_RaycastHit.collider.GetComponent<Portal>().CreateRefraction();
             }
         }
         m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
