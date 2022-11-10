@@ -11,5 +11,9 @@ public class CompanionSpawner: MonoBehaviour
         {
             GameObject.Instantiate(m_CompanionPrefab.gameObject, m_SpawnPosition.position, m_SpawnPosition.rotation);
         }
+        if(other.tag == "CompanionCube")
+        {
+            GameObject.Instantiate(m_CompanionPrefab.gameObject, m_SpawnPosition.position, m_SpawnPosition.rotation);
+        }
     }
 }
