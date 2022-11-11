@@ -174,9 +174,8 @@ public class FPPlayerController : MonoBehaviour
             {
                 Shoot(m_OrangePortal);
             }
-            if (Input.GetMouseButton(0)) //se crean portales tengas o no un cubo en la mano
-            {
-                ShootPreview(m_DoomiePortal);
+            /*else if (Input.GetMouseButton(0)) //se crean portales tengas o no un cubo en la mano
+            {                
                 if(Input.GetAxis("Mouse ScrollWheel") > 0.0f)
                 {
                     m_DoomiePortal.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
@@ -185,7 +184,8 @@ public class FPPlayerController : MonoBehaviour
                 {
                     m_DoomiePortal.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
                 }
-            }
+                ShootPreview(m_DoomiePortal);
+            }*/
         }
        
 

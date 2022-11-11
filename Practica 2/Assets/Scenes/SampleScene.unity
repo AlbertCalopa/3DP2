@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -201,6 +201,10 @@ PrefabInstance:
     - target: {fileID: 5707122498835138290, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_Name
       value: OrangePortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138290, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
@@ -1906,6 +1910,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 9137383678161498992, guid: 9eddf26057390cb40a4f054ef935c559, type: 3}
+      propertyPath: m_OffsetTeleportPortal
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eddf26057390cb40a4f054ef935c559, type: 3}
 --- !u!1 &2142515006
@@ -2119,6 +2127,10 @@ PrefabInstance:
     - target: {fileID: 5707122498835138290, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_Name
       value: BluePortal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138290, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
