@@ -543,6 +543,7 @@ public class FPPlayerController : MonoBehaviour
         m_CharacterController.enabled = false;
         
         transform.forward = _Portal.m_MirrorPortal.transform.TransformDirection(l_LocalDirection);
+        transform.localScale *= (_Portal.m_MirrorPortal.transform.localScale.x / _Portal.transform.localScale.x);
         m_Yaw = transform.rotation.eulerAngles.y;
         transform.position = _Portal.m_MirrorPortal.transform.TransformPoint(l_LocalPosotion) + l_WorldDirectionMovement * m_OffsetTeleportPortal;
         m_CharacterController.enabled = true;
