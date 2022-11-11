@@ -174,7 +174,7 @@ public class FPPlayerController : MonoBehaviour
             {
                 Shoot(m_OrangePortal);
             }
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0)) //se crean portales tengas o no un cubo en la mano
             {
                 ShootPreview(m_DoomiePortal);
                 if(Input.GetAxis("Mouse ScrollWheel") > 0.0f)
