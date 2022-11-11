@@ -676,6 +676,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 86.70513, y: 24.455236, z: 71.67269}
   m_Center: {x: -2.898004, y: 11.727625, z: -5.9689903}
+--- !u!114 &430438764 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+  m_PrefabInstance: {fileID: 2019462828}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22eda28c464b2e4f938311543d4408e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &449639128 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8118991892615061896, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
@@ -1704,6 +1715,104 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8ad812ef1fa12d44807613414b32d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &2019462828
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Laser
+      value: 
+      objectReference: {fileID: 449639128}
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Player
+      value: 
+      objectReference: {fileID: 2142515007}
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_MirrorPortal
+      value: 
+      objectReference: {fileID: 1665414849}
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_MaxValidDistance
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_MinValidDistance
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580098091937138421, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Size.z
+      value: 0.5586767
+      objectReference: {fileID: 0}
+    - target: {fileID: 3580098091937138421, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Center.z
+      value: 0.2733941
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122497833789715, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 75c1d105d60700249b1d1b24f9d63319, type: 2}
+    - target: {fileID: 5707122498367019692, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.47
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138289, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138290, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Name
+      value: Dommie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5707122498835138290, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3580098091937138421, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
 --- !u!1 &2041362869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +2083,7 @@ MonoBehaviour:
   m_JumpSpeed: 10
   m_BluePortal: {fileID: 1475734239}
   m_OrangePortal: {fileID: 1665414849}
-  m_DoomiePortal: {fileID: 1475734239}
+  m_DoomiePortal: {fileID: 430438764}
   m_TimeGrounded: 0.2
   m_MaxShootDistance: 50
   m_ShootingLayerMask:
@@ -2062,11 +2171,11 @@ PrefabInstance:
       objectReference: {fileID: 1665414849}
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_MaxValidDistance
-      value: 0.95
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_MinValidDistance
-      value: 0.4
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3580098091937138421, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_Size.z

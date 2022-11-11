@@ -469,7 +469,6 @@ GameObject:
   - component: {fileID: 5707122498389967798}
   - component: {fileID: 5707122498389967795}
   - component: {fileID: 5707122498389967796}
-  - component: {fileID: 5707122498389967797}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -540,20 +539,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5707122498389967797
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5707122498389967799}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5707122498835138290
 GameObject:
   m_ObjectHideFlags: 0
@@ -616,8 +601,8 @@ MonoBehaviour:
   - {fileID: 7004070515001481338}
   - {fileID: 2169954124344623507}
   - {fileID: 3675101389774949827}
-  m_MinValidDistance: 0.4
-  m_MaxValidDistance: 0.95
+  m_MinValidDistance: 0.25
+  m_MaxValidDistance: 1.8
   m_MinDotValidAngle: 0.995
   m_Laser: {fileID: 8118991892615061896}
   LaserTransform: {fileID: 6128914123551391016}
