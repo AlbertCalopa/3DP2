@@ -65,6 +65,8 @@ public class Companion : MonoBehaviour
         m_RigidBody.isKinematic = false;
         m_RigidBody.velocity = l_WorldVelocity;
         m_ExitPortal = _Portal.m_MirrorPortal;
+
+        //this.gameObject.transform.localScale = _Portal.transform.localScale;
     }
     // Update is called once per frame
     void Update()

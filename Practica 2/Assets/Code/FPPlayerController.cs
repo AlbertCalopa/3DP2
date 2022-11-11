@@ -144,7 +144,7 @@ public class FPPlayerController : MonoBehaviour
     {
         UpdateInputDebug();
         ShootingGalery();
-
+        Debug.Log(m_AttachingObject);
         if(m_Health <= 0)
         {
             Die();
@@ -173,6 +173,18 @@ public class FPPlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 Shoot(m_OrangePortal);
+            }
+            if (Input.GetMouseButton(0))
+            {
+                ShootPreview(m_DoomiePortal);
+                if(Input.GetAxis("Mouse ScrollWheel") > 0.0f)
+                {
+                    m_DoomiePortal.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                }
+                if (Input.GetAxis("Mouse ScrollWheel") < 0.0f)
+                {
+                    m_DoomiePortal.gameObject.transform.localScale -= new Vector3(0.2f, 0.2f, 0.2f);
+                }
             }
         }
        
@@ -405,7 +417,22 @@ public class FPPlayerController : MonoBehaviour
                 _Portal.gameObject.SetActive(false);
             }
         }
-        
+
+        void ShootPreview(Portal _Portal)
+        {
+            Vector3 l_Position;
+            Vector3 l_Normal;
+
+            if (_Portal.IsValidPosition(m_Camera.transform.position, m_Camera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
+            {
+                _Portal.gameObject.SetActive(true);
+            }
+            else if (m_AttachingObject)
+            {
+                _Portal.gameObject.SetActive(false);
+            }
+        }
+
         /*void Shoot()
         {
             if (m_bullets > 0 && isReloading == false && isRunning == false) 
@@ -440,9 +467,9 @@ public class FPPlayerController : MonoBehaviour
             
 
         }*/
-       
 
-        
+
+
     }
     void SetIdleWeaponAnimation()
     {

@@ -1606,7 +1606,6 @@ GameObject:
   - component: {fileID: 1946178161}
   - component: {fileID: 1946178160}
   - component: {fileID: 1946178159}
-  - component: {fileID: 1946178158}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: IceFloor
@@ -1614,22 +1613,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!54 &1946178158
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1946178157}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!65 &1946178159
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1637,7 +1620,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946178157}
-  m_Material: {fileID: 13400000, guid: 0203409d42294ef4997e3cb38b39b526, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -1919,6 +1902,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 65803225901186192, guid: 9eddf26057390cb40a4f054ef935c559, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eddf26057390cb40a4f054ef935c559, type: 3}
 --- !u!1 &2142515006
@@ -1979,7 +1966,7 @@ MonoBehaviour:
   m_JumpSpeed: 10
   m_BluePortal: {fileID: 1475734239}
   m_OrangePortal: {fileID: 1665414849}
-  m_DoomiePortal: {fileID: 0}
+  m_DoomiePortal: {fileID: 1475734239}
   m_TimeGrounded: 0.2
   m_MaxShootDistance: 50
   m_ShootingLayerMask:
