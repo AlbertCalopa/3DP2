@@ -9,12 +9,16 @@ public class Companion : MonoBehaviour
     Rigidbody m_RigidBody;
     public float m_OffsetTeleportPortal = 1.5f;    
     Portal m_ExitPortal = null;
+    BoxCollider m_Collider;
+    public PhysicMaterial m_MaterialCubo;
 
 
     // Start is called before the first frame update
     void Start()
     {
         m_RigidBody = GetComponent<Rigidbody>();
+        m_Collider = GetComponent<BoxCollider>();
+
     }
 
     public void SetAttached(bool Attached)
@@ -33,6 +37,10 @@ public class Companion : MonoBehaviour
             }
             
         }
+        if(other.tag == "IceFloor")
+        {
+            m_Collider.material = m_MaterialCubo;
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -42,6 +50,10 @@ public class Companion : MonoBehaviour
             {
                 m_ExitPortal = null;
             }
+        }
+        if (other.tag == "IceFloor")
+        {
+            m_Collider.material = null;
         }
     }
 

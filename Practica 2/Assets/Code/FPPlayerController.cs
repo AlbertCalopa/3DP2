@@ -53,7 +53,7 @@ public class FPPlayerController : MonoBehaviour
 
     public Portal m_BluePortal;
     public Portal m_OrangePortal;
-    public Portal m_DoomiePortal;
+    public Portal m_DummyPortal;
 
     float m_TimeOfGround;
     public float m_TimeGrounded = 0.2f;
@@ -116,6 +116,8 @@ public class FPPlayerController : MonoBehaviour
     public LayerMask m_AttachObjectLayerMask;
     public float m_AttachedObjectThrowForce = 750.0f;
 
+    bool m_ObjectJustThrown = false;
+
 
     void Start()
     {
@@ -164,29 +166,37 @@ public class FPPlayerController : MonoBehaviour
                 ThrowAttachedObject(0.0f);
             }
         }
-        else if(!m_AttachingObject)
+        else if(!m_ObjectAttached)
         {
-            if(Input.GetMouseButtonUp(0))
+            if ((Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1)) && m_ObjectJustThrown)
             {
-                m_BluePortal.transform.localScale = m_DoomiePortal.transform.localScale;
-                Shoot(m_BluePortal);
-                m_DoomiePortal.transform.localScale = new Vector3(1, 1, 1);
+                m_ObjectJustThrown = false;
             }
-            if (Input.GetMouseButtonUp(1))
+            else
             {
-                Shoot(m_OrangePortal);
-            }
-            else if (Input.GetMouseButton(0)) //se crean portales tengas o no un cubo en la mano
-            {                
-                if(Input.GetAxis("Mouse ScrollWheel") > 0.0f)
+                if (Input.GetMouseButtonUp(0))
                 {
-                    m_DoomiePortal.gameObject.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+
+                    m_BluePortal.transform.localScale = m_DummyPortal.transform.localScale;
+                    Shoot(m_BluePortal);
+                    m_DummyPortal.transform.localScale = new Vector3(1, 1, 1);
                 }
-                if (Input.GetAxis("Mouse ScrollWheel") < 0.0f)
+                if (Input.GetMouseButtonUp(1))
                 {
-                    m_DoomiePortal.gameObject.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+                    Shoot(m_OrangePortal);
                 }
-                ShootPreview(m_DoomiePortal);
+                else if (Input.GetMouseButton(0)) //se crean portales tengas o no un cubo en la mano
+                {
+                    if (Input.GetAxis("Mouse ScrollWheel") > 0.0f)
+                    {
+                        m_DummyPortal.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                    }
+                    if (Input.GetAxis("Mouse ScrollWheel") < 0.0f)
+                    {
+                        m_DummyPortal.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+                    }
+                    ShootPreview(m_DummyPortal);
+                }
             }
         }
        
@@ -370,6 +380,7 @@ public class FPPlayerController : MonoBehaviour
                 m_ObjectAttached.AddForce(m_PitchController.forward * force);
                 m_ObjectAttached.GetComponent<Companion>().SetAttached(false);                           
                 m_ObjectAttached = null;
+                m_ObjectJustThrown = true;
             }
         }
 
@@ -407,7 +418,7 @@ public class FPPlayerController : MonoBehaviour
 
         void Shoot(Portal _Portal)
         {
-            m_DoomiePortal.gameObject.SetActive(false);
+            m_DummyPortal.gameObject.SetActive(false);
             Vector3 l_Position;
             Vector3 l_Normal;
 
