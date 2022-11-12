@@ -10,6 +10,7 @@ TagManager:
   - CompanionCube
   - RefractionCube
   - IceFloor
+  - ButtonDoor
   layers:
   - Default
   - TransparentFX
