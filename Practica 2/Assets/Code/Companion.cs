@@ -46,6 +46,11 @@ public class Companion : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        if(other.tag == "Lasse")
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void OnTriggerExit(Collider other)
     {

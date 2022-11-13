@@ -12,6 +12,7 @@ TagManager:
   - IceFloor
   - ButtonDoor
   - DestroyWall
+  - Lasse
   layers:
   - Default
   - TransparentFX
