@@ -41,6 +41,11 @@ public class Companion : MonoBehaviour
         {
             m_Collider.material = m_MaterialCubo;
         }
+
+        if(other.tag == "DestroyWall")
+        {
+            Destroy(this.gameObject);
+        }
     }
     private void OnTriggerExit(Collider other)
     {

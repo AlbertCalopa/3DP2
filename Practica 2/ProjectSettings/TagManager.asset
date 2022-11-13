@@ -11,6 +11,7 @@ TagManager:
   - RefractionCube
   - IceFloor
   - ButtonDoor
+  - DestroyWall
   layers:
   - Default
   - TransparentFX
