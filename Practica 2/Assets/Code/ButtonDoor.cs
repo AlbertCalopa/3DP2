@@ -6,9 +6,11 @@ public class ButtonDoor : MonoBehaviour
 {
     [SerializeField] private Animator myDoor = null;
 
-    [SerializeField] private bool stayTrigger = false;
+    private float CanAnim = 0;
 
-    [SerializeField] private float CanAnim = 0;
+    [SerializeField] public float DistanceDownButton;
+    [SerializeField] public GameObject button;
+    [SerializeField] public bool thereIsAnim = true; 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,7 +18,12 @@ public class ButtonDoor : MonoBehaviour
         {
             if (CanAnim == 0)
             {
-                myDoor.Play("DoorAnim", 0, 0.0f);
+                if (thereIsAnim)
+                {
+                    myDoor.Play("DoorAnim", 0, 0.0f);
+                }
+                
+                button.transform.position += new Vector3(0, DistanceDownButton, 0);
             }
             
             CanAnim += 1;
@@ -29,7 +36,12 @@ public class ButtonDoor : MonoBehaviour
         {
             if (CanAnim == 1)
             {
-                myDoor.Play("DoorCloseAnim", 0, 0.0f);
+                if (thereIsAnim)
+                {
+                    myDoor.Play("DoorCloseAnim", 0, 0.0f);
+                }
+                
+                button.transform.position += new Vector3(0, -DistanceDownButton, 0);
             }
 
             CanAnim -= 1;

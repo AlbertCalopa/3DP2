@@ -169,7 +169,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myDoor: {fileID: 0}
-  openTrigger: 0
+  DistanceDownButton: -0.16
+  button: {fileID: 280320415114946894}
+  thereIsAnim: 1
 --- !u!1 &280320415114946894
 GameObject:
   m_ObjectHideFlags: 0
