@@ -649,7 +649,7 @@ GameObject:
   - component: {fileID: 8016212631199754752}
   m_Layer: 8
   m_Name: turre-low
-  m_TagString: CompanionCube
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,7 +724,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8016212632620058590}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8ad812ef1fa12d44807613414b32d58, type: 3}
   m_Name: 

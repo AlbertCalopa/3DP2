@@ -28,10 +28,10 @@ public class Laser : MonoBehaviour
                 l_RaycastHit.collider.GetComponent<Portal>().CreateRefraction();
             }
             
-            /*if (l_RaycastHit.collider.gameObject.tag == "CompanionCube") 
+            if (l_RaycastHit.collider.gameObject.tag == "Turret") 
             {
                 Destroy(l_RaycastHit.collider.gameObject);
-            }*/
+            }
         }
         m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
 
