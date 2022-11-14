@@ -118,6 +118,8 @@ public class FPPlayerController : MonoBehaviour
 
     bool m_ObjectJustThrown = false;
 
+    public CheckPoints checkpoints;
+
 
     void Start()
     {
@@ -146,7 +148,11 @@ public class FPPlayerController : MonoBehaviour
     {
         UpdateInputDebug();
         ShootingGalery();
-        Debug.Log(m_AttachingObject);        
+        Debug.Log(m_AttachingObject);
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            checkpoints.Save();
+        }
         if (Input.GetKeyDown(m_AttachObjectKeyCode) && CanAttachObject())
         {
             AttachObject();

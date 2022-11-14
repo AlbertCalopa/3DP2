@@ -4,27 +4,39 @@ using UnityEngine;
 
 public class CheckPoints : MonoBehaviour
 {
-    public List<float> checkpoints;
+    public int CheckpointID;
+    public Transform CheckpointTransform;
+    public FPPlayerController player;
     // Start is called before the first frame update
     void Start()
     {
-        checkpoints = new List<float>();
+        
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        Debug.Log(checkpoints.Count);
+        
     }
+    // Update is called once per frame
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            foreach(var check in checkpoints)
-            {
-                
-            }
-            checkpoints.Add(1);
+            CheckpointTransform = this.transform;
+            PlayerPrefs.SetInt("CheckPoint", CheckpointID);
+            PlayerPrefs.SetFloat("x", transform.position.x);
+            PlayerPrefs.SetFloat("y", transform.position.y);
+            PlayerPrefs.SetFloat("z", transform.position.z);
+            other.gameObject.GetComponent<FPPlayerController>().checkpoints = this;
+            Debug.Log(PlayerPrefs.GetInt("CheckPoint"));
         }
+    }
+
+    public void Save()
+    {
+        Vector3 playerPos = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), PlayerPrefs.GetFloat("z"));
+        player.transform.position = playerPos;
+        Debug.Log(playerPos);
     }
 }
