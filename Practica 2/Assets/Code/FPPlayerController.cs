@@ -596,7 +596,7 @@ public class FPPlayerController : MonoBehaviour
     public void Die()
     {
         m_Health = 0.0f;
-        Debug.Log("Pito");
+        
         
         
         //GameController.GetGameController().RestartGame();
