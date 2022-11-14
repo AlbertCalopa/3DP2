@@ -146,11 +146,7 @@ public class FPPlayerController : MonoBehaviour
     {
         UpdateInputDebug();
         ShootingGalery();
-        Debug.Log(m_AttachingObject);
-        if(m_Health <= 0)
-        {
-            Die();
-        }
+        Debug.Log(m_AttachingObject);        
         if (Input.GetKeyDown(m_AttachObjectKeyCode) && CanAttachObject())
         {
             AttachObject();
@@ -600,32 +596,13 @@ public class FPPlayerController : MonoBehaviour
     public void Die()
     {
         m_Health = 0.0f;
+        Debug.Log("Pito");
         
         
         //GameController.GetGameController().RestartGame();
 
     }
-    public void RestartGame() 
-    {
-        
-        m_Health = 0.5f;
-        m_Shield = 0.5f;
-        m_Points = 0;
-        m_bullets = 10;
-        m_MaxBullets = 100;
-        m_CharacterController.enabled = false;
-        transform.position = m_StartPosition;
-        transform.rotation = m_StartRotation;
-        m_CharacterController.enabled = true;
-        Gallery.SetActive(false);
-        isGaleryActive = false;
-        pointsActive = false;
-        
-
-
-
-    }
-
+   
     private IEnumerator Reload()
     {
         isReloading = true;
@@ -635,7 +612,7 @@ public class FPPlayerController : MonoBehaviour
         m_bullets = m_ChargerBullets;
         isReloading = false;
 
-}
+    }
     
         
 }

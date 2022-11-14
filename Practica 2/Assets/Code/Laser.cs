@@ -32,6 +32,10 @@ public class Laser : MonoBehaviour
             {
                 Destroy(l_RaycastHit.collider.gameObject);
             }
+            if(l_RaycastHit.collider.gameObject.tag == "Player")
+            {
+                l_RaycastHit.collider.GetComponent<FPPlayerController>().Die();
+            }
         }
         m_Laser.SetPosition(1, new Vector3(0.0f, 0.0f, l_LaserDistance));
 
