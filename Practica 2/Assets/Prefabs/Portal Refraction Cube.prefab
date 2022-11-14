@@ -935,4 +935,4 @@ MonoBehaviour:
   m_LaserLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_MaxLaserDistance: 10
+  m_MaxLaserDistance: 100
