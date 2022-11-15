@@ -125,6 +125,11 @@ public class FPPlayerController : MonoBehaviour
 
     public CheckPoints checkpoints;
 
+    public GameObject B_Portal;
+    public GameObject O_Portal;
+    public GameObject NONE_Portal; 
+
+
 
     void Start()
     {
@@ -198,12 +203,13 @@ public class FPPlayerController : MonoBehaviour
                 {
 
                     m_BluePortal.transform.localScale = m_DummyPortal.transform.localScale;
-                    Shoot(m_BluePortal);
+                    Shoot(m_BluePortal, B_Portal);
                     m_DummyPortal.transform.localScale = new Vector3(1, 1, 1);
                 }
                 if (Input.GetMouseButtonUp(1))
                 {
-                    Shoot(m_OrangePortal);
+                    Shoot(m_OrangePortal, O_Portal);
+                     
                 }
                 else if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) 
                 {
@@ -459,7 +465,7 @@ public class FPPlayerController : MonoBehaviour
             return true;
         }
 
-        void Shoot(Portal _Portal)
+        void Shoot(Portal _Portal, GameObject CrossHair) 
         {
             m_DummyPortal.gameObject.SetActive(false);
             Vector3 l_Position;
@@ -468,10 +474,12 @@ public class FPPlayerController : MonoBehaviour
             if(_Portal.IsValidPosition(m_Camera.transform.position, m_Camera.transform.forward, m_MaxShootDistance, m_ShootingLayerMask, out l_Position, out l_Normal))
             {
                 _Portal.gameObject.SetActive(true);
+                CrossHair.SetActive(true);
             }
             else
             {
                 _Portal.gameObject.SetActive(false);
+                CrossHair.SetActive(false);
             }
         }
 
