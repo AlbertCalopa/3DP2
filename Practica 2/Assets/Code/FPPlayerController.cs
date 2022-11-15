@@ -18,7 +18,12 @@ public class FPPlayerController : MonoBehaviour
 
     public bool m_UseYawInverted;
     public bool m_UsePitchInverted;
-    
+    private bool BigPortal = true;
+    private bool SmallPortal = true;
+    private bool NormalPortal = true; 
+
+
+
     [Header("Input")]
     public CharacterController m_CharacterController;
     public float m_PlayerSpeed;
@@ -200,15 +205,30 @@ public class FPPlayerController : MonoBehaviour
                 {
                     Shoot(m_OrangePortal);
                 }
-                else if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) //se crean portales tengas o no un cubo en la mano
+                else if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) 
                 {
-                    if (Input.GetAxis("Mouse ScrollWheel") > 0.0f)
+                    if (Input.GetAxis("Mouse ScrollWheel") > 0.0f && (NormalPortal == true || BigPortal == true))
                     {
-                        m_DummyPortal.transform.localScale += new Vector3(0.2f, 0.2f, 0.2f);
+                        Debug.Log("grande");
+                        m_DummyPortal.transform.localScale = new Vector3(2f, 2f, 2f);
+                        NormalPortal = false;
+                        SmallPortal = false;
+                        BigPortal = true;
                     }
-                    if (Input.GetAxis("Mouse ScrollWheel") < 0.0f)
+                    else if (Input.GetAxis("Mouse ScrollWheel") < 0.0f && (NormalPortal == true || SmallPortal == true))
                     {
-                        m_DummyPortal.transform.localScale -= new Vector3(0.25f, 0.25f, 0.25f);
+                        Debug.Log("Pequeño");
+                        m_DummyPortal.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                        NormalPortal = false;
+                        SmallPortal = true;
+                    }
+                    else if ((Input.GetAxis("Mouse ScrollWheel") < 0.0f || Input.GetAxis("Mouse ScrollWheel") > 0.0f ) && NormalPortal == false)
+                    {
+                        Debug.Log("Normal");
+                        m_DummyPortal.transform.localScale = new Vector3(1f, 1f, 1f);
+                        NormalPortal = true;
+                        SmallPortal = false;
+                        BigPortal = false; 
                     }
                     ShootPreview(m_DummyPortal);
                 }
