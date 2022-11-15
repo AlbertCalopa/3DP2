@@ -33,10 +33,5 @@ public class CheckPoints : MonoBehaviour
         }
     }
 
-    public void Save()
-    {
-        Vector3 playerPos = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), PlayerPrefs.GetFloat("z"));
-        player.transform.position = playerPos;
-        Debug.Log(playerPos);
-    }
+    
 }
