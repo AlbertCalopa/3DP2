@@ -65,11 +65,11 @@ public class FPPlayerController : MonoBehaviour
 
     public float m_OffsetTeleportPortal;
 
-    [Header("Animations")]
+    /*[Header("Animations")]
     public Animation m_Animation;
     public AnimationClip m_IdleAnimationClip;
     public AnimationClip m_ShootAnimationClip;    
-    public AnimationClip m_RunAnimationClip;
+    public AnimationClip m_RunAnimationClip;*/
 
     bool m_Shooting = false;
 
@@ -134,7 +134,7 @@ public class FPPlayerController : MonoBehaviour
         //#else
         //#endif
 
-        SetIdleWeaponAnimation();
+        //SetIdleWeaponAnimation();
         m_StartPosition = transform.position;
         m_StartRotation = transform.rotation;
 
@@ -148,7 +148,6 @@ public class FPPlayerController : MonoBehaviour
     {
         UpdateInputDebug();
         ShootingGalery();
-        Debug.Log(m_AttachingObject);
         if (Input.GetKeyDown(KeyCode.Q))
         {
             checkpoints.Save();
@@ -495,7 +494,7 @@ public class FPPlayerController : MonoBehaviour
 
 
     }
-    void SetIdleWeaponAnimation()
+    /*void SetIdleWeaponAnimation()
     {
         m_Animation.CrossFade(m_IdleAnimationClip.name);
     }
@@ -506,21 +505,21 @@ public class FPPlayerController : MonoBehaviour
         StartCoroutine(EndShoot());
     }
     
-    /*void SetRunWeaponAnimation() 
+    void SetRunWeaponAnimation() 
     {
         m_Animation.CrossFade(m_RunAnimationClip.name, 0.1f); 
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
         StartCoroutine(EndShoot());
-    }*/
+    }
 
     IEnumerator EndShoot()
     {
         yield return new WaitForSeconds(m_ShootAnimationClip.length);
         m_Shooting = false;
-    }
-    
-          
-    
+    }*/
+
+
+
 
     public void OnTriggerEnter(Collider other) //si colisiona
     {
@@ -582,7 +581,7 @@ public class FPPlayerController : MonoBehaviour
                  
 
                 Gallery.SetActive(true);
-                m_Animation.Play(); 
+                //m_Animation.Play(); 
                 pointsActive = true;
                 
                 foreach (GameObject g in Llista)

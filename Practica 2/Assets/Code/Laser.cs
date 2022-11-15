@@ -7,8 +7,10 @@ public class Laser : MonoBehaviour
     public LineRenderer m_Laser;
     public LayerMask m_LaserLayerMask;
     public float m_MaxLaserDistance = 250.0f;
+    [SerializeField] private Animator myDoor = null;
+    private bool IsOpen = false;
     // Start is called before the first frame update
-    
+
 
     public void Shoot()
     {
@@ -32,7 +34,18 @@ public class Laser : MonoBehaviour
             {
                 Destroy(l_RaycastHit.collider.gameObject);
             }
-            if(l_RaycastHit.collider.gameObject.tag == "Player")
+
+            if (l_RaycastHit.collider.gameObject.tag == "ButtonLasse")
+            {
+                if (IsOpen == false)
+                {
+                    myDoor.Play("DoorAnim", 0, 0.0f);
+                    IsOpen = true;
+                }
+                    
+            }
+
+            if (l_RaycastHit.collider.gameObject.tag == "Player")
             {
                 l_RaycastHit.collider.GetComponent<FPPlayerController>().Die();
             }
