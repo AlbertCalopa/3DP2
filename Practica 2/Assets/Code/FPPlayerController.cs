@@ -135,13 +135,12 @@ public class FPPlayerController : MonoBehaviour
         //#endif
 
         //SetIdleWeaponAnimation();
-<<<<<<< Updated upstream
-        m_StartPosition = transform.position;
-        m_StartRotation = transform.rotation;
-=======
+
+        
+
         //m_StartPosition = transform.position;
         //m_StartRotation = transform.rotation;
->>>>>>> Stashed changes
+
 
         m_BluePortal.gameObject.SetActive(false);
         m_OrangePortal.gameObject.SetActive(false);
@@ -156,15 +155,17 @@ public class FPPlayerController : MonoBehaviour
     {
         UpdateInputDebug();
         ShootingGalery();
-<<<<<<< Updated upstream
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            checkpoints.Save();
+            Vector3 playerPos = new Vector3(PlayerPrefs.GetFloat("x"), PlayerPrefs.GetFloat("y"), PlayerPrefs.GetFloat("z"));
+            this.transform.position = playerPos;
+            Debug.Log(playerPos);
         }
-=======
+
         Debug.Log(m_AttachingObject);
         
->>>>>>> Stashed changes
+
         if (Input.GetKeyDown(m_AttachObjectKeyCode) && CanAttachObject())
         {
             AttachObject();
