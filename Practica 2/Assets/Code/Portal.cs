@@ -94,11 +94,11 @@ public class Portal : MonoBehaviour
     public void CreateRefraction()
     {
         
-        if (m_RefractionEnabled)
+        /*if (m_RefractionEnabled)
         {            
             return;
         }        
-        m_RefractionEnabled = true;
+        m_RefractionEnabled = true;*/
         if (m_RefractionEnabled)
         {            
             m_Laser.Shoot();

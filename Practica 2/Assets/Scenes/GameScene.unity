@@ -9580,6 +9580,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8d17fe5f6cf65514abf46c46b4e53ba0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3e3d619290a354eb1f0b00faa6dc2b, type: 3}
+--- !u!1 &1098932816 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6128914123551391016, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+  m_PrefabInstance: {fileID: 5707122497602759727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1103167290
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16839,6 +16844,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8d17fe5f6cf65514abf46c46b4e53ba0, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4a3e3d619290a354eb1f0b00faa6dc2b, type: 3}
+--- !u!120 &1848570093 stripped
+LineRenderer:
+  m_CorrespondingSourceObject: {fileID: 878661085288413153, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+  m_PrefabInstance: {fileID: 5707122497602759727}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1850518691
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20583,6 +20593,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1473325164}
     - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: LaserTransform
+      value: 
+      objectReference: {fileID: 1098932816}
+    - target: {fileID: 3556066608036039123, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
       propertyPath: m_MirrorPortal
       value: 
       objectReference: {fileID: 1665414849}
@@ -20658,6 +20672,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8118991892615061896, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
+      propertyPath: m_Laser
+      value: 
+      objectReference: {fileID: 1848570093}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b163efe563a5574086fddc3e81f019e, type: 3}
 --- !u!1001 &6597439591135211613
