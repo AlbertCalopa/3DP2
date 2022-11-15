@@ -19,7 +19,7 @@ public class Portal : MonoBehaviour
     
     private void Update()
     {
-        m_Laser.gameObject.SetActive(m_RefractionEnabled);
+        //m_Laser.gameObject.SetActive(m_RefractionEnabled);
         m_RefractionEnabled = false;
     }
     private void LateUpdate()
