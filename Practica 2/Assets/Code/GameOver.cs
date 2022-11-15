@@ -34,4 +34,9 @@ public class GameOver : MonoBehaviour
         PlayerPrefs.SetFloat("z", -3.3f);
         SceneManager.LoadScene("GameScene");
     }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }
