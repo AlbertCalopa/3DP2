@@ -16,6 +16,7 @@ public class Portal : MonoBehaviour
     public GameObject LaserTransform;
     bool m_RefractionEnabled = false;
 
+    
     private void Update()
     {
         m_Laser.gameObject.SetActive(m_RefractionEnabled);
@@ -92,13 +93,14 @@ public class Portal : MonoBehaviour
 
     public void CreateRefraction()
     {
+        
         if (m_RefractionEnabled)
-        {
+        {            
             return;
-        }
+        }        
         m_RefractionEnabled = true;
         if (m_RefractionEnabled)
-        {
+        {            
             m_Laser.Shoot();
         }
 

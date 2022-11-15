@@ -28,6 +28,7 @@ public class Laser : MonoBehaviour
             if(l_RaycastHit.collider.tag == "Portal")
             {
                 l_RaycastHit.collider.GetComponent<Portal>().CreateRefraction();
+                
             }
             
             if (l_RaycastHit.collider.gameObject.tag == "Turret") 

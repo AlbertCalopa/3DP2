@@ -303,6 +303,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_MaxLaserDistance: 10
+  myDoor: {fileID: 0}
 --- !u!1 &5707122497833789717
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +605,7 @@ MonoBehaviour:
   m_MinValidDistance: 0.25
   m_MaxValidDistance: 1.8
   m_MinDotValidAngle: 0.995
-  m_Laser: {fileID: 8118991892615061896}
+  m_Laser: {fileID: 0}
   LaserTransform: {fileID: 6128914123551391016}
 --- !u!65 &3580098091937138421
 BoxCollider:
