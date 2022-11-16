@@ -208,8 +208,10 @@ public class FPPlayerController : MonoBehaviour
                 }
                 if (Input.GetMouseButtonUp(1))
                 {
+                    m_OrangePortal.transform.localScale = m_DummyPortal.transform.localScale;
                     Shoot(m_OrangePortal, O_Portal);
-                     
+                    m_DummyPortal.transform.localScale = new Vector3(1, 1, 1);
+
                 }
                 else if (Input.GetMouseButton(0) || Input.GetMouseButton(1)) 
                 {
